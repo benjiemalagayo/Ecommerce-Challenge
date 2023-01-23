@@ -1,13 +1,48 @@
-body {
+*, *::before, *::after {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --color-primary-orange: hsl(26, 100%, 55%);
+  --color-primary-pale-orange: hsl(25, 100%, 94%);
+
+  --color-secondary-very-dark-blue: hsl(220, 13%, 13%);
+  --color-secondary-dark-grayish-blue: hsl(219, 9%, 45%);
+  --color-secondary-grayish-blue: hsl(220, 14%, 75%);
+  --color-secondary-light-grayish-blue: hsl(223, 64%, 98%);
+
+  --color-white: hsl(0, 0%, 100%);
+  --color-black: hsl(0, 0%, 0%);
+}
+
+body {
+  font-family: 'Kumbh Sans', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.active {
+  opacity: 0.5;
+}
+
+.rightArrow {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  font-size: 2rem;
+}
+
+.leftArrow {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  font-size: 2rem;
 }
