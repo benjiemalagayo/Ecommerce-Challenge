@@ -62,6 +62,9 @@ const S = {
     margin-top: 30px;
     font-weight: 700;
   `,
+  DeleteIcon: styled.div`
+    cursor: pointer;
+  `,
 };
 
 const ModalCart = (props: CartComponentProps) => {
@@ -94,13 +97,9 @@ const ModalCart = (props: CartComponentProps) => {
                   <S.Total>${props.cartValue * 125}.00</S.Total>
                 </div>
               </div>
-              <div>
-                <img
-                  src={DeleteIcon}
-                  onClick={() => props.setCartValue(0)}
-                  alt=""
-                />
-              </div>
+              <S.DeleteIcon>
+                <img src={DeleteIcon} onClick={() => props.setCartValue(0)} alt="" />
+              </S.DeleteIcon>
             </S.ProductDetails>
           </S.BodyLoaded>
 

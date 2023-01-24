@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -18,7 +20,13 @@
 }
 
 body {
-  font-family: 'Kumbh Sans', sans-serif;
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+@media screen and (min-width: 1440px) {
+  body {
+    margin: 40px 200px 0 200px;
+  }
 }
 
 a {

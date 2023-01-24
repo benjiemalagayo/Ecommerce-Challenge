@@ -83,7 +83,7 @@ const S = {
     display: flex;
     align-items: center;
 
-    @media screen and (max-width: 426px) {
+    @media screen and (max-width: 770px) {
       display: none;
     }
   `,

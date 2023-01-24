@@ -18,6 +18,8 @@ const S = {
     position: relative;
   `,
   ProductImage: styled.img`
+    width: 100%;
+    height: 0 auto;
     cursor: pointer;
     @media screen and (min-width: 770px) {
       height: 400px;
@@ -26,7 +28,7 @@ const S = {
   `,
   PrevButton: styled.img`
     position: absolute;
-    top: 40%;
+    top: 220px;
     left: 20px;
     background-color: var(--color-white);
     padding: 15px 18px;
@@ -38,7 +40,7 @@ const S = {
   `,
   NextButton: styled.img`
     position: absolute;
-    top: 40%;
+    top: 220px;
     right: 20px;
     background-color: var(--color-white);
     padding: 15px 18px;
@@ -50,22 +52,24 @@ const S = {
   `,
   ThumbnailContainer: styled.div`
     display: flex;
+    justify-content: space-between;
+    width: 100%;
 
     @media screen and (max-width: 770px) {
       display: none;
     }
   `,
   ThumbnailImage: styled.img<Props>`
-    margin-right: 20px;
     margin-top: 20px;
+    width: 100%;
+    height: 0 auto;
     border-radius: 15px;
     cursor: pointer;
-    opacity: ${(props) =>
-      props.product === props.currentProduct ? "0.5" : "1"};
-    border: ${(props) =>
-      props.product === props.currentProduct &&
-      "2px solid var(--color-primary-orange)"};
+    opacity: ${(props) => (props.product === props.currentProduct ? "0.5" : "1")};
+    border: ${(props) => props.product === props.currentProduct && "2px solid var(--color-primary-orange)"};
   `,
+
+  // LightBox/Overlay
   LighBoxContainer: styled.div`
     position: absolute;
     width: 100%;
@@ -81,6 +85,23 @@ const S = {
     left: 50%;
     transform: translate(-50%, -50%);
   `,
+  LightBoxProductImage: styled.img`
+    width: 100%;
+    height: 0 auto;
+    cursor: pointer;
+    height: 400px;
+    border-radius: 15px;
+  `,
+  LightBoxThumbnailImage: styled.img<Props>`
+    margin-top: 20px;
+    margin-right: 10px;
+    height: 80px;
+    width: 80px;
+    border-radius: 15px;
+    cursor: pointer;
+    opacity: ${(props) => (props.product === props.currentProduct ? "0.5" : "1")};
+    border: ${(props) => props.product === props.currentProduct && "2px solid var(--color-primary-orange)"};
+  `,
   CloseIcon: styled.img`
     position: absolute;
     top: -40px;
@@ -90,7 +111,7 @@ const S = {
   LightBoxNextButton: styled.img`
     position: absolute;
     top: 40%;
-    right: -5px;
+    right: -25px;
     background-color: var(--color-white);
     padding: 15px 18px;
     border-radius: 50px;
@@ -134,41 +155,25 @@ const Products = () => {
           onClick={() => {
             setShowLightBox(true);
           }}
-          width={375}
-          height={300}
+          // width={375}
+          // height={300}
         />
 
         {/* LightBox Product */}
         {showLightBox && (
           <S.LighBoxContainer>
             <S.LightBoxProduct>
-              <S.CloseIcon
-                onClick={() => setShowLightBox(false)}
-                src={CloseIcon}
-                alt=""
-                width={25}
-                height={25}
-              />
-              <S.ProductImage src={currentProduct} width={375} height={300} />
-              <S.LightBoxPrevButton
-                onClick={prevHandler}
-                src={PrevIcon}
-                alt=""
-              />
-              <S.LightBoxNextButton
-                onClick={nextHandler}
-                src={NextIcon}
-                alt=""
-              />
+              <S.CloseIcon onClick={() => setShowLightBox(false)} src={CloseIcon} alt="" width={25} height={25} />
+              <S.LightBoxProductImage src={currentProduct} width={375} height={300} />
+              <S.LightBoxPrevButton onClick={prevHandler} src={PrevIcon} alt="" />
+              <S.LightBoxNextButton onClick={nextHandler} src={NextIcon} alt="" />
               <S.ThumbnailContainer>
                 {allProducts.map((product, key: any) => {
                   return (
                     <div key={key}>
-                      <S.ThumbnailImage
+                      <S.LightBoxThumbnailImage
                         onClick={() => setCurrentProduct(product)}
                         src={product}
-                        width={80}
-                        height={80}
                         alt=""
                         product={product}
                         currentProduct={currentProduct}

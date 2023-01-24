@@ -30,6 +30,7 @@ const S = {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     text-align: center;
+    padding: 10px 0;
     cursor: pointer;
   `,
 };

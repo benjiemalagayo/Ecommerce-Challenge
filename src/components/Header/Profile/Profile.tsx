@@ -25,6 +25,13 @@ const S = {
   Cart: styled.img`
     margin-right: 20px;
   `,
+  ProfileImg: styled.img`
+    border-radius: 50px;
+    cursor: pointer;
+    &:active {
+      border: 1px solid var(--color-primary-orange);
+    }
+  `,
   ModalContainer: styled.div`
     position: absolute;
     background-color: var(--color-white);
@@ -44,8 +51,7 @@ const S = {
     }
   `,
   NotifQuantity: styled.span<Props>`
-    background: ${(props) =>
-      props.cartValue !== 0 && "var(--color-primary-orange)"};
+    background: ${(props) => props.cartValue !== 0 && "var(--color-primary-orange)"};
     color: white;
     width: 1rem;
     height: 1rem;
@@ -79,17 +85,9 @@ const Profile = ({ cartValue, setCartValue }: PropsCartQuantity) => {
       <S.CartContainer>
         <S.Cart onClick={modalCartHandler} src={Cart} alt="" />
 
-        <S.NotifQuantity cartValue={cartValue}>
-          {cartValue !== 0 && cartValue}
-        </S.NotifQuantity>
+        <S.NotifQuantity cartValue={cartValue}>{cartValue !== 0 && cartValue}</S.NotifQuantity>
       </S.CartContainer>
-      <img
-        onClick={modalCartHandler}
-        src={MyProfile}
-        alt=""
-        width={30}
-        height={30}
-      />
+      <S.ProfileImg onClick={modalCartHandler} src={MyProfile} alt="" width={30} height={30} />
 
       {showModal && (
         <S.ModalContainer>

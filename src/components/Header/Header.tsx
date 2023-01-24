@@ -12,7 +12,7 @@ const S = {
     padding: 20px 30px;
 
     @media screen and (min-width: 770px) {
-      margin: 30px 220px 0 220px;
+      margin: 30px 70px 0 70px;
       padding: 0 0 40px 0;
       border-bottom: 1px solid var(--color-secondary-grayish-blue);
       display: flex;
