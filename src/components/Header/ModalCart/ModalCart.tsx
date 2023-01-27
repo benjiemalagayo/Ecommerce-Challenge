@@ -1,12 +1,7 @@
-import React, { BaseSyntheticEvent } from "react";
+import React from "react";
 import styled from "styled-components";
 import Product from "../../../assets/images/image-product-1.jpg";
 import DeleteIcon from "../../../assets/images/icon-delete.svg";
-
-interface CartComponentProps {
-  cartValue: number;
-  setCartValue: Function;
-}
 
 const S = {
   Header: styled.div`
@@ -67,8 +62,13 @@ const S = {
   `,
 };
 
-const ModalCart = (props: CartComponentProps) => {
-  if (props.cartValue <= 0) {
+interface ModalCartProps {
+  cartValue: number;
+  setCartValue: Function;
+}
+
+const ModalCart = ({ cartValue, setCartValue }: ModalCartProps) => {
+  if (cartValue <= 0) {
     return (
       <>
         <S.Header>
@@ -93,12 +93,12 @@ const ModalCart = (props: CartComponentProps) => {
                 <div>Fall Limited Edition Sneakers</div>
                 <div>
                   <S.Price>$125.00 X</S.Price>
-                  <S.Quantity>{props.cartValue}</S.Quantity>
-                  <S.Total>${props.cartValue * 125}.00</S.Total>
+                  <S.Quantity>{cartValue}</S.Quantity>
+                  <S.Total>${cartValue * 125}.00</S.Total>
                 </div>
               </div>
               <S.DeleteIcon>
-                <img src={DeleteIcon} onClick={() => props.setCartValue(0)} alt="" />
+                <img src={DeleteIcon} onClick={() => setCartValue(0)} alt="" />
               </S.DeleteIcon>
             </S.ProductDetails>
           </S.BodyLoaded>

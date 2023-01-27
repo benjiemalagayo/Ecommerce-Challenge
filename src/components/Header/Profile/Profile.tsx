@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Cart from "../../../assets/images/icon-cart.svg";
 import MyProfile from "../../../assets/images/image-avatar.png";
 import styled from "styled-components";
-// import ModalCart from '../ModalCart/ModalCart'
 import ModalCart from "../ModalCart/ModalCart";
 
 interface Props {
@@ -11,7 +10,6 @@ interface Props {
 
 const S = {
   Container: styled.div`
-    /* position: relative; */
     display: flex;
     align-items: center;
   `,
@@ -40,7 +38,7 @@ const S = {
     width: 95%;
     height: 32%;
     border-radius: 5px;
-    z-index: 100;
+    z-index: 10;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
     @media screen and (min-width: 770px) {

@@ -1,7 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import MinusIcon from "../../../assets/images/icon-minus.svg";
-import PlusIcon from "../../../assets/images/icon-plus.svg";
 
 const S = {
   Company: styled.div`
@@ -67,27 +65,26 @@ const S = {
   `,
 };
 
-interface PropsQuantity {
+interface ProductDetailsProps {
   quantity: number;
   setQuantity: Function;
 }
 
-const ProductDetails = (props: PropsQuantity) => {
+const ProductDetails = ({ quantity, setQuantity }: ProductDetailsProps) => {
   const minusHandler = () => {
-    props.setQuantity(props.quantity > 0 ? props.quantity - 1 : props.quantity);
+    setQuantity(quantity > 0 ? quantity - 1 : quantity);
   };
 
   const addHandler = () => {
-    props.setQuantity(props.quantity + 1);
+    setQuantity(quantity + 1);
   };
   return (
     <div>
       <S.Company>Sneaker Comany</S.Company>
       <S.Title>Fall Limited Edition Sneakers</S.Title>
       <S.Details>
-        These low-profile sneakers are your perfect casual wear companion.
-        Featuring a durable rubber outer sole, they'll withstand everything the
-        weather can offer.
+        These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll
+        withstand everything the weather can offer.
       </S.Details>
       <S.Price>
         <div>
@@ -97,15 +94,6 @@ const ProductDetails = (props: PropsQuantity) => {
 
         <S.BeforePrice>$250.00</S.BeforePrice>
       </S.Price>
-      {/* <S.QuantityButtonContainer>
-        <S.MinusIconContainer onClick={minusHandler}>
-          <img src={MinusIcon} alt="" />
-        </S.MinusIconContainer>
-        <S.Quantity>{props.quantity}</S.Quantity>
-        <S.PlusIconContainer onClick={addHandler}>
-          <img src={PlusIcon} alt="" />
-        </S.PlusIconContainer>
-      </S.QuantityButtonContainer> */}
     </div>
   );
 };

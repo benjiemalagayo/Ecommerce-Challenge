@@ -22,8 +22,12 @@ const S = {
     height: 0 auto;
     cursor: pointer;
     @media screen and (min-width: 770px) {
-      height: 400px;
+      height: 300px;
       border-radius: 15px;
+    }
+
+    @media screen and (min-width: 1024px) {
+      height: 400px;
     }
   `,
   PrevButton: styled.img`
@@ -61,7 +65,7 @@ const S = {
   `,
   ThumbnailImage: styled.img<Props>`
     margin-top: 20px;
-    width: 100%;
+    width: 90%;
     height: 0 auto;
     border-radius: 15px;
     cursor: pointer;
@@ -78,6 +82,10 @@ const S = {
     left: 0;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 100;
+
+    @media screen and (max-width: 770px) {
+      display: none;
+    }
   `,
   LightBoxProduct: styled.div`
     position: absolute;
@@ -196,8 +204,8 @@ const Products = () => {
                 <S.ThumbnailImage
                   onClick={() => setCurrentProduct(product)}
                   src={product}
-                  width={80}
-                  height={80}
+                  // width={80}
+                  // height={80}
                   alt=""
                   product={product}
                   currentProduct={currentProduct}

@@ -7,6 +7,7 @@ const S = {
   NavContainer: styled.div`
     display: flex;
     align-items: center;
+    z-index; 100;
   `,
   MenuIcon: styled.img`
     cursor: pointer;
@@ -34,7 +35,7 @@ const S = {
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 100;
   `,
-  SideNavbar: styled.div`
+  SideNavbar: styled.nav`
     height: 100vh;
     width: 70%;
     background-color: white;
@@ -115,7 +116,6 @@ const Navigation = () => {
         </S.DesktopNavigationMenu>
       </S.NavContainer>
 
-      {/* Sidebar Modal */}
       {showNavbar && (
         <S.SidebarModal
           onClick={() => {

@@ -3,27 +3,35 @@ import Products from "./Products/Products";
 import styled from "styled-components";
 import ProductDetails from "./ProductDetails/ProductDetails";
 import Quantity from "./Quantity/Quantity";
-import CartIcon from "../../assets/images/icon-cart.svg";
 
 const S = {
   ProductContainer: styled.div`
     @media screen and (min-width: 770px) {
       display: flex;
-      margin: 50px 70px 0 70px;
+      margin: 50px 100px 0 100px;
       gap: 50px;
+    }
+
+    @media screen and (min-width: 1024px) {
+      margin: 50px 120px 0 120px;
     }
   `,
   Products: styled.div`
     @media screen and (min-width: 770px) {
-      width: 40%;
+      width: 50%;
     }
   `,
   ProductDetailsContainer: styled.div`
     padding: 20px;
 
     @media screen and (min-width: 770px) {
+      padding: 20px 0 0 0;
       width: 50%;
-      margin-top: 50px;
+    }
+
+    @media screen and (min-width: 1024px) {
+      margin: 50px;
+      padding: 0;
     }
   `,
   QuantityAndAddCartButton: styled.div`
@@ -56,7 +64,6 @@ const S = {
     justify-content: center;
     gap: 8px;
     cursor: pointer;
-    /* box-shadow: var(--color-primary-orange) 0px 5px 10px -10px; */
     &:hover {
       opacity: 0.5;
     }
@@ -65,6 +72,7 @@ const S = {
       margin-top: 0;
       margin-left: 20px;
       width: 50%;
+      padding: 12px 0;
     }
   `,
 };

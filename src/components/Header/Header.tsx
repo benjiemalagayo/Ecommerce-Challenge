@@ -1,6 +1,5 @@
 import React from "react";
 import Navigation from "./Navigation/Navigation";
-import Logo from "./Logo/Logo";
 import Profile from "./Profile/Profile";
 import styled from "styled-components";
 
@@ -23,6 +22,7 @@ const S = {
   NavContainer: styled.div`
     display: flex;
     align-items: center;
+    z-index; 100;
   `,
 };
 
